@@ -4,14 +4,14 @@ attempts = 5
 
 print()
 print('***** Welcome to the number guessing game ***** \n')
-print('I have selected a number between 1 and 100. Try to guess it.')
+print('I have selected a number between 1 and 100. Try to guess it in 5 attempts.')
 
 secret_number = random.randint(1, 100)
-for attempts in range(attempts):
+for attempt in range(attempts):
     guess = int(input('Enter your guess: '))
 
     if guess == secret_number:
-        print(f'Congratulations! You guessed the correct number in {attempts + 1} attempts')
+        print(f'Congratulations! You guessed the correct number in {attempt + 1} attempts')
         break
 
     elif guess < secret_number:
