@@ -13,12 +13,12 @@ password_combination_4 = capital_letters + small_letters + special_characters + 
 while True:
     try:
         user_input_length = int(input("Please enter your password length: "))
-        if 1 <= user_input_length <= 20:
+        if 10 <= user_input_length <= 20:
             break
         else:
-            print('Please enter number between 1 and 20!')
+            print('Please enter number between 10 and 20!')
     except ValueError:
-        print('Please enter number between 1 and 20! \n')
+        print('Please enter number between 10 and 20!')
 
 user_input_characters = input("Do you want to include special characters? ").lower()
 user_input_numbers = input("Do you want to include numbers? ").lower()
