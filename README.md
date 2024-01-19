@@ -1,17 +1,17 @@
-# Python Projects Repository
+Python Projects Repository
 
-## Author
-- [Haro-95](https://github.com/Haro-95)
+Description
 
-## Description
-This repository contains Python projects created by me.
+This repository contains a collection of Python projects, each highlighting various aspects of programming in Python, including games, utilities, and more.
 
-## Projects
-### Number Guessing Game
-- File: `number_guessing_game.py`
+Getting Started
 
-### Password Generator
-- File: `password_generator.py`
+Clone the repository to your local machine:
 
-## Getting Started
-- Clone the repository to your local machine and run the .py file.
+git clone https://github.com/Haro-95/Python-Projects.git
+
+Explore individual projects within their respective directories.
+
+Run the Python files to experience the functionality:
+
+python <project_name>.py
