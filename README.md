@@ -1,17 +1,27 @@
-Python Projects Repository
+# Python Projects Repository
 
-Description
+## Author
 
-This repository contains a collection of Python projects, each highlighting various aspects of programming in Python, including games, utilities, and more.
+Haro-95
 
-Getting Started
+## Description
 
-Clone the repository to your local machine:
+This repository contains a collection of Python projects, each highlighting various aspects of my experience with Python, including games, utilities, and more.
 
-git clone https://github.com/Haro-95/Python-Projects.git
+## Getting Started
 
-Explore individual projects within their respective directories.
+1. **Clone the repository to your local machine:**
+   ```bash
+   git clone https://github.com/Haro-95/Python-Projects.git
 
-Run the Python files to experience the functionality:
+2. **Navigate to the projects folder:**
+   ```bash
+   cd Python-Projects
 
-python <project_name>.py
+3. **Run Python files on Windows:**
+   ```bash
+   python <file_name>.py
+
+4. **Run Python files on Linux or macOS:**
+   ```bash
+   python3 <file_name>.py
