@@ -68,47 +68,44 @@ while True:
 
     try:
         operation = int(input('Choose operation (1-6): '))
-
-        if operation.is_integer() and operation in range(7):
     
-            if operation == 1:
-                print()
-                attempts = 3
-                while attempts != 0:
-                    if app.password_verification():
+        if operation == 1:
+            print()
+            attempts = 3
+            while attempts != 0:
+                if app.password_verification():
 
-                        print(app.show_balance())
-                        break
-                    else:
-                        print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
-                        attempts -= 1
+                    print(app.show_balance())
+                    break
+                else:
+                    print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
+                    attempts -= 1
 
-            elif operation == 2:
-                print()
-                deposit_amount = int(input('Please enter the amount you want to deposit: '))
-                deposit_result = app.deposit(deposit_amount)
-                print(deposit_result)
+        elif operation == 2:
+            print()
+            deposit_amount = int(input('Please enter the amount you want to deposit: '))
+            deposit_result = app.deposit(deposit_amount)
+            print(deposit_result)
 
-            elif operation == 3:
-                print()
-                attempts = 3
-                while attempts != 0:
-                    if app.password_verification():
-                        withdrawal_amount = int(input('Please enter the amount you want to withdrawal: '))
-                        withdrawal_result = app.withdraw(withdrawal_amount)
-                        print(withdrawal_result)
-                        break
-                    else:
-                        print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
-                        attempts -= 1
+        elif operation == 3:
+            print()
+            attempts = 3
+            while attempts != 0:
+                if app.password_verification():
+                    withdrawal_amount = int(input('Please enter the amount you want to withdrawal: '))
+                    withdrawal_result = app.withdraw(withdrawal_amount)
+                    print(withdrawal_result)
+                    break
+                else:
+                    print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
+                    attempts -= 1
 
-            elif operation == 4:
-                print(f'You have made {app.deposits_counter} deposits in total!\n')
-            elif operation == 5:
-                print(f'You have made {app.withdrawal_counter} withdrawals in total!\n')
-            elif operation == 6:
-                break
-        else:
-            print('Invalid choice!\n')
+        elif operation == 4:
+            print(f'You have made {app.deposits_counter} deposits in total!\n')
+        elif operation == 5:
+            print(f'You have made {app.withdrawal_counter} withdrawals in total!\n')
+        elif operation == 6:
+            break
+
     except ValueError:
         print('\nPlease enter a valid number!\n')
