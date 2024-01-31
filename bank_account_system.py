@@ -25,7 +25,7 @@ class BankAccount:
             self.withdrawal_counter += 1
             return '\nSuccessful withdrawal\n'
 
-    def password_verification(self):
+    def password_verification(self, user_code):
         try:
             code = int(input('\nPlease enter your PIN code: '))
             if user_code == code:
@@ -68,12 +68,12 @@ while True:
 
     try:
         operation = int(input('Choose operation (1-6): '))
-    
+
         if operation == 1:
             print()
             attempts = 3
             while attempts != 0:
-                if app.password_verification():
+                if app.password_verification(user_code):
 
                     print(app.show_balance())
                     break
@@ -91,7 +91,7 @@ while True:
             print()
             attempts = 3
             while attempts != 0:
-                if app.password_verification():
+                if app.password_verification(user_code):
                     withdrawal_amount = int(input('Please enter the amount you want to withdrawal: '))
                     withdrawal_result = app.withdraw(withdrawal_amount)
                     print(withdrawal_result)
