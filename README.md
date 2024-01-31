@@ -1,3 +1,5 @@
+
+
 # Python Projects Repository
 
 ## Author
@@ -14,13 +16,15 @@ This repository contains a collection of Python projects, each highlighting vari
    ```bash
    git clone https://github.com/Haro-95/Python-Projects.git
 
-1. **Navigate to the projects folder:**
+2. **Navigate to the projects folder:**
    ```bash
    cd Python-Projects
 
-1. **Run Python files:**
+3. **Run Python files on Windows:**
    ```bash
-   python <file_name>.py (for Windows)
-   python3 <file_name>.py (for Linux or macOS)
-
-
+   python <file_name>.py
+   ```
+4. **Run Python files on Linux or macOS:**
+   ```bash
+   python3 <file_name>.py
+   ```
