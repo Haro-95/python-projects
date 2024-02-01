@@ -12,7 +12,7 @@ password_combination_4 = capital_letters + small_letters + special_characters + 
 
 while True:
     try:
-        user_input_length = int(input("Please enter your password length: "))
+        user_input_length = int(input("Please enter your password length (10-20): "))
         if 10 <= user_input_length <= 20:
             break
         else:
@@ -20,8 +20,26 @@ while True:
     except ValueError:
         print('Please enter number between 10 and 20!')
 
-user_input_characters = input("Do you want to include special characters? ").lower()
-user_input_numbers = input("Do you want to include numbers? ").lower()
+while True:
+    try:
+        user_input_characters = input("Do you want to include special characters? ").lower()
+        if user_input_characters == 'yes' or user_input_characters == 'no':
+            break
+        else:
+            raise ValueError
+    except ValueError:
+        print('Please select: Yes or No')
+
+
+while True:
+    try:
+        user_input_numbers = input("Do you want to include numbers? ").lower()
+        if user_input_numbers == 'yes' or user_input_numbers == 'no':
+            break
+        else:
+            raise ValueError
+    except ValueError:
+        print('Please select: Yes or No')
 
 password_version_1 = "".join(random.sample(password_combination_1, user_input_length))
 password_version_2 = "".join(random.sample(password_combination_2, user_input_length))
