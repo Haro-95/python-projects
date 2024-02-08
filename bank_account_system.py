@@ -6,6 +6,7 @@ class BankAccount:
     def __init__(self, name, balance=0):
         self.name = name
         self.balance = balance
+        self.transactions = []
         print(f'Account {self.name} created!')
 
     def show_balance(self):
@@ -14,6 +15,7 @@ class BankAccount:
     def deposit(self, amount):
         self.balance += amount
         self.deposits_counter += 1
+        self.transactions.append(f'\nDeposit: ${amount:.2f}\n')
 
         return '\nSuccessful deposit!\n'
 
@@ -23,7 +25,8 @@ class BankAccount:
         else:
             self.balance -= amount
             self.withdrawal_counter += 1
-            return '\nSuccessful withdrawal\n'
+            self.transactions.append(f'\nWithdrawal: ${amount:.2f}\n')
+            return '\nSuccessful withdrawal'
 
     def password_verification(self, user_code):
         try:
@@ -34,6 +37,9 @@ class BankAccount:
                 return False
         except ValueError:
             print('Incorrect PIN, please try again.')
+
+    def get_transaction_history(self):
+        return '\n' .join(self.transactions)
 
 
 while True:
@@ -84,8 +90,14 @@ while True:
         elif operation == 2:
             print()
             deposit_amount = int(input('Please enter the amount you want to deposit: '))
-            deposit_result = app.deposit(deposit_amount)
-            print(deposit_result)
+            while True:
+                if deposit_amount < 0:
+                    print("The amount can't be negative!")
+                    deposit_amount = int(input('Please enter the amount you want to deposit: '))
+                else:
+                    deposit_result = app.deposit(deposit_amount)
+                    print(deposit_result)
+                    break
 
         elif operation == 3:
             print()
@@ -93,9 +105,12 @@ while True:
             while attempts != 0:
                 if app.password_verification(user_code):
                     withdrawal_amount = int(input('Please enter the amount you want to withdrawal: '))
-                    withdrawal_result = app.withdraw(withdrawal_amount)
-                    print(withdrawal_result)
-                    break
+                    if withdrawal_amount < 0:
+                        print("The amount can't be negative!")
+                    else:
+                        withdrawal_result = app.withdraw(withdrawal_amount)
+                        print(withdrawal_result)
+                        break
                 else:
                     print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
                     attempts -= 1
@@ -106,6 +121,8 @@ while True:
             print(f'You have made {app.withdrawal_counter} withdrawals in total!\n')
         elif operation == 6:
             break
+        elif operation == 7:
+            print(app.get_transaction_history())
 
     except ValueError:
         print('\nPlease enter a valid number!\n')
