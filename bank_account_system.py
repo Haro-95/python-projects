@@ -40,6 +40,10 @@ class BankAccount:
 
     def get_transaction_history(self):
         return '\n' .join(self.transactions)
+    
+    def low_balance(self):
+        if self.balance < 100:
+            print('\nYour balance is low. Please top up your account.\n')
 
 
 while True:
@@ -70,7 +74,7 @@ app = BankAccount(user_name, user_balance)
 print()
 
 while True:
-    print('1. Balance \n2. Deposit \n3. Withdrawal \n4. Deposit Statistic \n5. Withdrawal Statistic \n6. Exit')
+    print('1. Balance \n2. Deposit \n3. Withdrawal \n4. Deposit Statistic \n5. Withdrawal Statistic \n6. Transaction History \n7. Exit')
 
     try:
         operation = int(input('Choose operation (1-6): '))
@@ -110,6 +114,7 @@ while True:
                     else:
                         withdrawal_result = app.withdraw(withdrawal_amount)
                         print(withdrawal_result)
+                        app.low_balance()
                         break
                 else:
                     print(f'Wrong code! Please try again! {attempts - 1} attempts left.')
@@ -120,9 +125,9 @@ while True:
         elif operation == 5:
             print(f'You have made {app.withdrawal_counter} withdrawals in total!\n')
         elif operation == 6:
-            break
-        elif operation == 7:
             print(app.get_transaction_history())
+        elif operation == 7:
+            break
 
     except ValueError:
         print('\nPlease enter a valid number!\n')
